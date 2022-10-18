@@ -5,14 +5,14 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
-import com.example.joseantoniovaliente.ejercicio2.databinding.ElementLayoutBinding
+import com.example.joseantoniovaliente.ejercicio2.databinding.ViewElementBinding
 
 class ElementAdapter(val elements:List<Element>,
                      val listener:(Element)->Unit):
                         RecyclerView.Adapter<ElementAdapter.ViewHolder>() {
 
     class ViewHolder(view:View):RecyclerView.ViewHolder(view){
-        val binding=ElementLayoutBinding.bind(view)
+        val binding=ViewElementBinding.bind(view)
         fun bind(element: Element){
 
             Glide.with(binding.imageElement).load(element.image).into(binding.imageElement)
@@ -22,7 +22,7 @@ class ElementAdapter(val elements:List<Element>,
 
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
-        val view= LayoutInflater.from(parent.context).inflate(R.layout.element_layout,parent,false)
+        val view= LayoutInflater.from(parent.context).inflate(R.layout.view_element,parent,false)
 
         return ViewHolder(view)
     }
